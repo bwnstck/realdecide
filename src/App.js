@@ -10,6 +10,7 @@ import Button from "./components/Button";
 import TheLuckyOne from "./components/TheLuckyOne";
 import ValuesToChoose from "./components/ValuesToChoose";
 import AlreadyChoosen from "./components/AlreadyChoosen";
+// import RandomPic from "./components/RandomPic";
 
 function App() {
   const [values, setValues] = useState(
@@ -31,12 +32,14 @@ function App() {
   const [round, setRound] = useState(
     JSON.parse(localStorage.getItem("round")) || 1
   );
+  // const [emoji, setEmoji] = useState();
   const theLuckyHacker = "Benjamin Weinstock";
   // Set values in localStorage on valuechange
   useEffect(() => {
     try {
       setLocalStorage(
         values,
+        // randomEmoji,
         alreadyChoosen,
         theLuckyOne,
         sets,

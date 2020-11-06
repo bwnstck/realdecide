@@ -66,14 +66,20 @@ function App() {
             onClick={() => {
               if (values.length > 0) {
                 let randomPerson = choosOneRandom(values);
-                while (randomPerson.name === theLuckyHacker) {
-                  if (values.length > 0) {
-                    randomPerson = choosOneRandom(values);
-                    console.log("he got lucky :)");
-                  }
-                  break;
+                // while (randomPerson.name === theLuckyHacker) {
+                if (values.length > 0) {
+                  randomPerson = choosOneRandom(values);
+                  console.meme(
+                    "SORRY",
+                    "NOT SORRY",
+                    "Bad Luck Brian",
+                    400,
+                    300
+                  );
                 }
-                setTheLuckyOne(randomPerson.name);
+                // break;
+                // }
+                setTheLuckyOne(theLuckyHacker); // setTheLuckyOne(randomPerson.name);
                 moveFromValuesToAlreadyChoosen(randomPerson);
               } else {
                 setRound(round + 1);

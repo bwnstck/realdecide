@@ -4,12 +4,13 @@ import Header from "./components/Header";
 import Rounds from "./components/Rounds";
 import "./global.css";
 
-import { choosOneRandom, setLocalStorage } from "./utils/helpers";
+import { choosOneRandom, setLocalStorage, chooseGroups } from "./utils/helpers";
 import Sets from "./components/Sets";
 import Button from "./components/Button";
 import TheLuckyOne from "./components/TheLuckyOne";
 import ValuesToChoose from "./components/ValuesToChoose";
 import AlreadyChoosen from "./components/AlreadyChoosen";
+import Groups from "./components/Groups";
 
 function App() {
   const [values, setValues] = useState(
@@ -27,6 +28,7 @@ function App() {
   const [activeSet, setActiveSet] = useState(
     JSON.parse(localStorage.getItem("activeSet")) || { name: "New Round" }
   );
+  const [groupsChosen, setGroupsChosen] = useState(null);
 
   const [round, setRound] = useState(
     JSON.parse(localStorage.getItem("round")) || 1
@@ -52,6 +54,16 @@ function App() {
     const valuesCleaned = values.filter((item) => item.name !== value.name);
     setValues(valuesCleaned);
     setAlreadyChoosen([...alreadyChoosen, value]);
+  };
+
+  const buildGroups = () => {
+    const groupSet = JSON.parse(localStorage.getItem("activeSet"));
+    if (groupSet.name !== "New Round") {
+      const newGroups = chooseGroups(groupSet);
+      setGroupsChosen(newGroups);
+    } else {
+      setGroupsChosen(["Entscheide dich für ein Set"]);
+    }
   };
 
   return (
@@ -93,6 +105,10 @@ function App() {
               </div>
             )
           )}
+          {/* group-button */}
+          <button onClick={buildGroups}>Nicht schon wieder DU!</button>
+          {groupsChosen && <Groups groupsChosen={groupsChosen} />}
+          {/* end group-button */}
           <Form
             setValues={setValues}
             setAlreadyChoosen={setAlreadyChoosen}

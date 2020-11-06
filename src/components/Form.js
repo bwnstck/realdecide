@@ -1,4 +1,3 @@
-import "./Form.css";
 import { useState } from "react";
 import Button from "./Button";
 import styled from "styled-components";
@@ -24,6 +23,7 @@ const LabelElement = styled.label`
 `;
 
 const FormExtras = styled.div`
+  margin-top: 1rem;
   padding: 1rem;
 `;
 

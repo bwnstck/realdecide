@@ -30,7 +30,7 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
           setValues(inputValueToObj(inputValue, separator));
         }}
       >
-        <input
+        <textarea
           value={inputValue}
           onChange={(event) => setInputValue(event.target.value)}
           type="text"

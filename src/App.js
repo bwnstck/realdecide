@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import Rounds from "./components/Rounds";
+import Animation from "./components/Animation";
 import "./global.css";
 
 import { choosOneRandom, setLocalStorage } from "./utils/helpers";
@@ -58,6 +59,7 @@ function App() {
     <div className="container">
       <Header />
       <main className="main">
+        <div></div>
         <div className="realDecideContainer">
           <h2 className="setTitle">{activeSet.name}</h2>
           <Button
@@ -83,6 +85,8 @@ function App() {
               }
             }}
           />
+          {theLuckyOne && <Animation theLuckyOne={theLuckyOne} />}
+
           <Rounds round={round} setRound={setRound} />
           {theLuckyOne ? (
             <TheLuckyOne theLuckyOne={theLuckyOne} />

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import Rounds from "./components/Rounds";
-import "./global.css";
+import GlobalStyle from "./GlobalStyle";
 
 import { choosOneRandom, setLocalStorage } from "./utils/helpers";
 import Sets from "./components/Sets";
@@ -56,6 +56,7 @@ function App() {
 
   return (
     <div className="container">
+      <GlobalStyle />
       <Header />
       <main className="main">
         <div className="realDecideContainer">

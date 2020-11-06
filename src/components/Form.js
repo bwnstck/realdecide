@@ -36,6 +36,12 @@ const Summary = styled.summary`
   font-size: 1.5rem;
 `;
 
+const PersonsInput = styled.input`
+  min-height: 100px;
+  text-align: center;
+  border-radius: 5px;
+`;
+
 export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
   const [inputValue, setInputValue] = useState("");
   const [separator, setSeparator] = useState(/\d+\s+/g);
@@ -63,7 +69,7 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
           setValues(inputValueToObj(inputValue, separator));
         }}
       >
-        <input
+        <PersonsInput
           value={inputValue}
           onChange={(event) => setInputValue(event.target.value)}
           type="text"

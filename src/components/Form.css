@@ -6,22 +6,16 @@
   font-family: var(--textFont);
   font-size: 1.5rem; 
 }*/
-*:focus {
-  outline: none;
-  box-shadow: 0 0 5px 3px var(--action-text);
-}
-summary::-webkit-details-marker {
-  color: rebeccapurple;
-}
 
 .form > * {
   margin-top: 1rem;
 }
-.persons__input {
+
+/* .persons__input {
   min-height: 100px;
   text-align: center;
   border-radius: 5px;
-}
+} */
 
 /* .form * > label {
   color: var(--text-color);
@@ -34,7 +28,10 @@ summary::-webkit-details-marker {
   margin: 1rem auto;
   padding: 1rem 3rem;
 } */
-#persons__inputDelimiter {
+
+/*  ===== WAS IST DAS? ===== */
+/* #persons__inputDelimiter {
   color: black;
   width: 10%;
 }
+ */

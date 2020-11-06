@@ -1,7 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Montserrat&display=swap");
 
 :root {
   --titelFont: "Alfa Slab One", cursive;
@@ -26,6 +25,11 @@ const GlobalStyle = createGlobalStyle`
   outline: none;
   box-shadow: 0 0 5px 3px var(--action-text);
 }
+
+html {
+font-family: var(--textFont);
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -33,6 +37,8 @@ body {
   font-family: var(--textFont);
   background-color: rebeccapurple;
 }
+
+
 
 h1,
 h2,
@@ -46,9 +52,11 @@ h3 {
 h2 {
   margin: 1rem auto 0.5rem;
 }
+
 #root {
   width: 100%;
 }
+
 .container {
   height: 100vh;
   display: grid;
@@ -56,6 +64,7 @@ h2 {
   grid-template-columns: 100%;
   justify-content: center;
 }
+
 .main {
   width: 100%;
   max-width: 750px;
@@ -77,6 +86,14 @@ footer {
   -ms-user-select: none;
   user-select: none;
   -o-user-select: none;
+}
+
+*:focus {
+  outline: none;
+  box-shadow: 0 0 5px 3px var(--action-text);
+}
+summary::-webkit-details-marker {
+  color: rebeccapurple;
 }
 
 `;

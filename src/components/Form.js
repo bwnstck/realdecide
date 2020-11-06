@@ -4,7 +4,7 @@ import Button from "./Button";
 
 export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
   const [inputValue, setInputValue] = useState("");
-  const [separator, setSeparator] = useState(/\d+\s+/g);
+  const [separator, setSeparator] = useState(/\n/g);
 
   const generateID = () => Math.floor(Math.random() * 10000);
 

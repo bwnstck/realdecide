@@ -14,7 +14,9 @@ export default function Value({ value, setValues, values }) {
         }
       }}
     >
+      {value.house}
       {value.name}
+
       <p className="ids">#{value.id}</p>
     </li>
   );

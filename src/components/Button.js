@@ -8,6 +8,14 @@ const ButtonSubmit = styled.button`
   max-width: 10rem;
   margin: 1rem auto;
   padding: 1rem 3rem;
+  &:hover {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+  }
 `;
 
 export default function Button({ className, onClick, innerText }) {

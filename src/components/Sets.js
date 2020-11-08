@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
@@ -16,6 +17,51 @@ export default function Sets({
   setSets,
   setActiveSet,
 }) {
+  const StyledTippy = styled(Tippy)`
+    margin: 1rem auto;
+    text-align: center;
+    &:hover {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+    }
+  `;
+
+  const SetToolTip = styled.div`
+    background-color: var(--action-background);
+    padding: 1rem;
+  `;
+
+  const SetListSetButton = styled.button`
+    margin: 0.5rem;
+    min-width: 80px;
+    font-size: 1rem;
+    background-color: var(--background-dark);
+    color: white;
+    border: var(--action-text);
+    border-radius: 5px;
+  `;
+
+  const Sets = styled.h2`
+    margin: auto;
+    color: var(--text-color);
+    letter-spacing: 2px;
+    text-shadow: 2px 0px 1px var(--background-dark);
+    font-family: var(--titelFont);
+    font-size: 1.5rem;
+    &:hover {
+      border: none;
+      outline: none;
+      cursor: pointer;
+      position: relative;
+      z-index: 0;
+      border-radius: 10px;
+    }
+  `;
+
   const [setName, setSetName] = useState("");
   //   const [visible, setVisible] = useState(false);
 
@@ -23,14 +69,13 @@ export default function Sets({
   //     setVisible(!visible);
   //   };
   return (
-    <Tippy
-      className="setList glow-on-hover"
+    <StyledTippy
       //   visible={visible}
       allowHTML={true}
       interactive={true}
       theme={"light"}
       content={
-        <div className="setTooltip">
+        <SetToolTip>
           <form
             onSubmit={(event) => {
               event.preventDefault();
@@ -57,9 +102,8 @@ export default function Sets({
           </form>
           {sets?.map((set) => {
             return (
-              <button
+              <SetListSetButton
                 key={set.name}
-                className="setList__set"
                 onClick={(event) => {
                   event.preventDefault();
                   if (event.altKey) {
@@ -79,18 +123,17 @@ export default function Sets({
                 }}
               >
                 <p>{set.name}</p>
-              </button>
+              </SetListSetButton>
             );
           })}
-        </div>
+        </SetToolTip>
       }
     >
-      <h2
-        className="sets glow-on-hover"
-        //   onClick={toggleButton}
+      <Sets
+      //   onClick={toggleButton}
       >
         Sets
-      </h2>
-    </Tippy>
+      </Sets>
+    </StyledTippy>
   );
 }

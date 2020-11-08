@@ -1,11 +1,18 @@
 import React from "react";
+import styled from "styled-components";
 import Realdecide from "./RealDecide";
+
+const AlreadyChosen = styled.div`
+  display: grid;
+  align-content: center;
+  justify-content: center;
+`;
 
 export default function AlreadyChoosen({ alreadyChoosen, setAlreadyChoosen }) {
   return (
-    <div className="alreadyChoosen">
+    <AlreadyChosen>
       <h2>🎯 {alreadyChoosen.length} Already Choosen 🎯</h2>
       <Realdecide values={alreadyChoosen} setValues={setAlreadyChoosen} />
-    </div>
+    </AlreadyChosen>
   );
 }

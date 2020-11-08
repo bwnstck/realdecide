@@ -16,10 +16,12 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
     const randomNumber = Math.floor(Math.random() * 4);
 
     const randomPics = [Gryffindor, Slytherin, Hufflepuff, Ravenclaw];
+    const altHouse = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
     const chosenPic = randomPics[randomNumber];
+    const chosenAlt = altHouse[randomNumber];
 
     console.log(chosenPic);
-    return <img src={chosenPic} alt={"Gryffindor"} />;
+    return <img src={chosenPic} alt={chosenAlt} />;
   };
 
   function inputValueToObj(inputText, seperator) {

@@ -25,3 +25,17 @@ export const setLocalStorage = (
   localStorage.setItem("activeSet", JSON.stringify(activeSet));
   localStorage.setItem("round", JSON.stringify(round));
 };
+
+export const chooseGroups = (groupSet, size = 3) => {
+  const randomMembers = [...groupSet.values].sort(() => 0.5 - Math.random());
+  const groups = [];
+  randomMembers.forEach((member) => {
+    let lastGroup = groups[groups.length - 1];
+    if (!lastGroup || lastGroup.length >= size) {
+      groups.push([]);
+      lastGroup = groups[groups.length - 1];
+    }
+    lastGroup.push(member.name);
+  });
+  return groups;
+};

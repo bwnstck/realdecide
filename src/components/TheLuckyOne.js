@@ -1,9 +1,12 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import React from "react";
 
 const LuckyOneContainer = styled.div`
   margin: 1rem auto;
   padding: 1rem 0rem 0;
+  h3 {
+    margin: 1rem 0 auto;
+  }
 `;
 
 const LuckyOneText = styled.h2`
@@ -36,13 +39,7 @@ const LuckyOneText = styled.h2`
 export default function TheLuckyOne({ theLuckyOne }) {
   return (
     <LuckyOneContainer>
-      <h3
-        css={`
-          margin: 1rem 0 auto;
-        `}
-      >
-        🚀 Its you! 👩‍🎤
-      </h3>
+      <h3>🚀 Its you! 👩‍🎤</h3>
       <LuckyOneText className="theLuckyOne__text  glow">
         ✨ {theLuckyOne} ✨
       </LuckyOneText>

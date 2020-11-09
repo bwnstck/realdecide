@@ -1,7 +1,7 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import React from "react";
 
-const HeaderStyled = styled.div`
+const Wrapper = styled.div`
   background-color: var(--background-color);
   background: rgb(49, 10, 107);
   background: linear-gradient(
@@ -11,26 +11,20 @@ const HeaderStyled = styled.div`
   );
   color: var(--foreground-color);
   text-align: center;
+  h1 {
+    margin-top: 4rem;
+  }
+
+  h5 {
+    margin-bottom: 5rem;
+  }
 `;
 
 export default function Header() {
   return (
-    <HeaderStyled>
-      <h1
-        css={`
-          margin-top: 4rem;
-        `}
-      >
-        -= Real 🎯 Decide =-
-      </h1>
-      <h5
-        css={`
-          margin-bottom: 5rem;
-        `}
-      >
-        {" "}
-        localStorage(📦) - Version
-      </h5>
-    </HeaderStyled>
+    <Wrapper>
+      <h1>-= Real 🎯 Decide =-</h1>
+      <h5> localStorage(📦) - Version</h5>
+    </Wrapper>
   );
 }

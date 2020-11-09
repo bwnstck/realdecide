@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 const ButtonSubmit = styled.button`
   font-family: var(--titelFont);

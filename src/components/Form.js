@@ -1,14 +1,22 @@
 import { useState } from "react";
 import Button from "./Button";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
-const DetailsContainer = styled.details`
+const Details = styled.details`
   width: 70%;
   min-width: 300px;
   margin: 2rem auto;
   padding: 1rem;
   background: rgb(151, 140, 210);
   border-radius: 5px;
+  summary {
+    margin: auto;
+    color: var(--text-color);
+    letter-spacing: 2px;
+    text-shadow: 1px 0 5px black;
+    font-family: var(--textFont);
+    font-size: 1.5rem;
+  }
 `;
 
 const FormElement = styled.form`
@@ -25,15 +33,6 @@ const LabelElement = styled.label`
 const FormExtras = styled.div`
   margin-top: 1rem;
   padding: 1rem;
-`;
-
-const Summary = styled.summary`
-  margin: auto;
-  color: var(--text-color);
-  letter-spacing: 2px;
-  text-shadow: 1px 0 5px black;
-  font-family: var(--textFont);
-  font-size: 1.5rem;
 `;
 
 const PersonsInput = styled.input`
@@ -59,8 +58,8 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
   }
 
   return (
-    <DetailsContainer open={true}>
-      <Summary>🖋 Input ✏️</Summary>
+    <Details open={true}>
+      <summary>🖋 Input ✏️</summary>
       <FormElement
         onSubmit={(event) => {
           event.preventDefault();
@@ -74,7 +73,6 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
           onChange={(event) => setInputValue(event.target.value)}
           type="text"
           placeholder="👩‍🎤 Use the separator-Input  ⬇️ ‍"
-          className="persons__input"
         />
         <FormExtras>
           <LabelElement htmlFor="persons__inputSeperator">
@@ -92,6 +90,6 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
         </FormExtras>
         <Button innerText={"Submit"} />
       </FormElement>
-    </DetailsContainer>
+    </Details>
   );
 }

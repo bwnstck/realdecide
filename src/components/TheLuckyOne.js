@@ -42,7 +42,7 @@ export default function TheLuckyOne({ theLuckyOne }) {
   const [finished, setFinished] = useState(false);
   const { result, dencrypt } = useDencrypt();
 
-  let values = ["Next fish: ", theLuckyOne];
+  let values = ["Next fish: ", theLuckyOne.name];
 
   useEffect(() => {
     setFinished(false);

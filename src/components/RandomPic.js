@@ -1,10 +1,11 @@
-export default function RandomNumber() {
-  const randomNumber = Math.floor(Math.random() * 4);
+import Gryffindor from "../img/Gryffindor.png";
+import Slytherin from "../img/Slytherin.png";
+import Hufflepuff from "../img/Hufflepuff.png";
+import Ravenclaw from "../img/Ravenclaw.png";
 
-  const randomPics = ["Gryffindor", "Hufflepuff", "Slytherin", "Ravenclaw"];
-  const chosenPic = randomPics[randomNumber];
-  console.log(Math.Random);
-  localStorage.setItem("House", { chosenPic });
+const randomPics = [Gryffindor, Slytherin, Hufflepuff, Ravenclaw];
+const altHouse = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
 
-  return <p>{chosenPic}</p>;
+export default function RandomPic(index) {
+  return <img src={randomPics[index]} alt={altHouse[index]} />;
 }

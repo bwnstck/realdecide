@@ -1,5 +1,6 @@
 import "./Value.css";
 import React from "react";
+import RandomPic from "./RandomPic";
 
 export default function Value({ value, setValues, values }) {
   return (
@@ -14,7 +15,7 @@ export default function Value({ value, setValues, values }) {
         }
       }}
     >
-      {value.house}
+      {RandomPic(value.houseIndex)}
       {value.name}
 
       <p className="ids">#{value.id}</p>

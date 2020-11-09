@@ -73,7 +73,10 @@ function App() {
                   }
                   break;
                 }
-                setTheLuckyOne(randomPerson.name);
+                setTheLuckyOne({
+                  name: randomPerson.name,
+                  houseIndex: randomPerson.houseIndex,
+                });
                 moveFromValuesToAlreadyChoosen(randomPerson);
               } else {
                 setRound(round + 1);

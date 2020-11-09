@@ -1,10 +1,6 @@
 import "./Form.css";
 import { useState } from "react";
 import Button from "./Button";
-import Gryffindor from "../img/Gryffindor.png";
-import Slytherin from "../img/Slytherin.png";
-import Hufflepuff from "../img/Hufflepuff.png";
-import Ravenclaw from "../img/Ravenclaw.png";
 
 export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
   const [inputValue, setInputValue] = useState("");
@@ -12,24 +8,16 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
 
   const generateID = () => Math.floor(Math.random() * 10000);
 
-  const randomHouse = () => {
-    const randomNumber = Math.floor(Math.random() * 4);
-
-    const randomPics = [Gryffindor, Slytherin, Hufflepuff, Ravenclaw];
-    const altHouse = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
-    const chosenPic = randomPics[randomNumber];
-    const chosenAlt = altHouse[randomNumber];
-
-    console.log(chosenPic);
-    return <img src={chosenPic} alt={chosenAlt} />;
+  const getRandomHouseIndex = () => {
+    return Math.floor(Math.random() * 4);
   };
 
   function inputValueToObj(inputText, seperator) {
     const inputArray = inputText.split(seperator);
     const outputArray = inputArray.map((name) => {
-      let house = randomHouse();
+      let houseIndex = getRandomHouseIndex();
       let ID = generateID();
-      let result = { id: ID, name: name.trim(), house: house };
+      let result = { id: ID, name: name.trim(), houseIndex: houseIndex };
       return result;
     });
     return outputArray;

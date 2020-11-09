@@ -42,6 +42,8 @@ const PersonsInput = styled.textarea`
 `;
 
 export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
+  const [openDetails, setOpenDetails] = useState(false);
+
   const [inputValue, setInputValue] = useState("");
   const [separator, setSeparator] = useState(/\n/g);
 
@@ -64,7 +66,7 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
   }
 
   return (
-    <Details open={true}>
+    <Details open={openDetails} onClick={() => setOpenDetails(!openDetails)}>
       <summary>🖋 Input ✏️</summary>
       <FormElement
         onSubmit={(event) => {
@@ -72,6 +74,7 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
           setAlreadyChoosen([]);
           setTheLuckyOne("");
           setValues(inputValueToObj(inputValue, separator));
+          setOpenDetails(false);
         }}
       >
         <PersonsInput

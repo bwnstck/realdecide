@@ -4,6 +4,52 @@ import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/themes/light.css";
 import "./Sets.css";
+
+const StyledTippy = styled(Tippy)`
+  margin: 1rem auto;
+  text-align: center;
+  &:hover {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+  }
+`;
+
+const SetToolTip = styled.div`
+  background-color: var(--action-background);
+  padding: 1rem;
+`;
+
+const SetListSetButton = styled.button`
+  margin: 0.5rem;
+  min-width: 80px;
+  font-size: 1rem;
+  background-color: var(--background-dark);
+  color: white;
+  border: var(--action-text);
+  border-radius: 5px;
+`;
+
+const SetTitle = styled.h2`
+  margin: auto;
+  color: var(--text-color);
+  letter-spacing: 2px;
+  text-shadow: 2px 0px 1px var(--background-dark);
+  font-family: var(--titelFont);
+  font-size: 1.5rem;
+  &:hover {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+  }
+`;
+
 export default function Sets({
   values,
   setValues,
@@ -17,60 +63,15 @@ export default function Sets({
   setSets,
   setActiveSet,
 }) {
-  const StyledTippy = styled(Tippy)`
-    margin: 1rem auto;
-    text-align: center;
-    &:hover {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      position: relative;
-      z-index: 0;
-      border-radius: 10px;
-    }
-  `;
-
-  const SetToolTip = styled.div`
-    background-color: var(--action-background);
-    padding: 1rem;
-  `;
-
-  const SetListSetButton = styled.button`
-    margin: 0.5rem;
-    min-width: 80px;
-    font-size: 1rem;
-    background-color: var(--background-dark);
-    color: white;
-    border: var(--action-text);
-    border-radius: 5px;
-  `;
-
-  const Sets = styled.h2`
-    margin: auto;
-    color: var(--text-color);
-    letter-spacing: 2px;
-    text-shadow: 2px 0px 1px var(--background-dark);
-    font-family: var(--titelFont);
-    font-size: 1.5rem;
-    &:hover {
-      border: none;
-      outline: none;
-      cursor: pointer;
-      position: relative;
-      z-index: 0;
-      border-radius: 10px;
-    }
-  `;
-
   const [setName, setSetName] = useState("");
-  //   const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false);
 
-  //   const toggleButton = () => {
-  //     setVisible(!visible);
-  //   };
+  const toggleButton = () => {
+    setVisible(!visible);
+  };
   return (
     <StyledTippy
-      //   visible={visible}
+      visible={visible}
       allowHTML={true}
       interactive={true}
       theme={"light"}
@@ -92,6 +93,7 @@ export default function Sets({
               ]);
             }}
           >
+            <h2>Your Sets</h2>
             <input
               type="text"
               placeholder=" Save current as set"
@@ -99,11 +101,12 @@ export default function Sets({
                 setSetName(event.target.value);
               }}
             ></input>
+            <input type={"submit"} />
           </form>
-          {sets?.map((set) => {
+          {sets?.map((set, index) => {
             return (
               <SetListSetButton
-                key={set.name}
+                key={index}
                 onClick={(event) => {
                   event.preventDefault();
                   if (event.altKey) {
@@ -119,6 +122,7 @@ export default function Sets({
                     setTheLuckyOne(set.theLuckyOne);
                     setRound(set.round);
                     setActiveSet(set);
+                    setVisible(false);
                   }
                 }}
               >
@@ -129,11 +133,7 @@ export default function Sets({
         </SetToolTip>
       }
     >
-      <Sets
-      //   onClick={toggleButton}
-      >
-        Sets
-      </Sets>
+      <SetTitle onClick={toggleButton}>Sets</SetTitle>
     </StyledTippy>
   );
 }

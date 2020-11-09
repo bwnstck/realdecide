@@ -17,9 +17,7 @@
 .button__reRun {
   font-family: var(--titelFont);
   color: var(--action-text);
-  background-color: var(--action-background);
-  font-size: 2.5rem;
-  padding: 0.5rem;
+  background-color: transparent;
   line-height: 1;
 }
 

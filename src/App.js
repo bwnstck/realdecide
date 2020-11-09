@@ -79,6 +79,7 @@ function App() {
         <div className="realDecideContainer">
           <h2 className="setTitle">{activeSet.name}</h2>
           <Button
+            rerun={"rerun"}
             className={"button__reRun"}
             innerText={"🎯"}
             onClick={() => {
@@ -121,7 +122,7 @@ function App() {
               </div>
             )
           )}
-          <button onClick={buildGroups}>Nicht schon wieder DU!</button>
+          <Button onClick={buildGroups} innerText={"Group 3m/p"}></Button>
           {handleError && <div className="handleError">{handleError}</div>}
           {groupsChosen && <Groups groupsChosen={groupsChosen} />}
           <Form

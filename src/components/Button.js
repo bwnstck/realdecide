@@ -3,11 +3,11 @@ import styled from "styled-components/macro";
 
 const ButtonSubmit = styled.button`
   font-family: var(--titelFont);
-  font-size: 1rem;
+  font-size: ${(props) => (props.rerun ? "4rem" : "1rem")};
   border-radius: 10px;
   max-width: 10rem;
   margin: 1rem auto;
-  padding: 1rem 3rem;
+  padding: ${(props) => (props.rerun ? "0.5rem" : "1rem")};
   &:hover {
     border: none;
     outline: none;
@@ -18,10 +18,10 @@ const ButtonSubmit = styled.button`
   }
 `;
 
-export default function Button({ className, onClick, innerText }) {
+export default function Button({ className, onClick, innerText, rerun }) {
   return (
     <ButtonSubmit
-      tabIndex={"0"}
+      rerun={rerun}
       className={`button glow-on-hover ${className}`}
       onClick={onClick}
     >

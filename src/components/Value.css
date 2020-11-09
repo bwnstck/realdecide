@@ -7,7 +7,6 @@
 .value {
   display: table;
   border-radius: 10px;
-  background-color: var(--action-background);
   font-family: var(--textFont);
   color: var(--text-color);
   margin: 1rem 0.5rem;

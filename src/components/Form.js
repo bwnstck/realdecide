@@ -8,12 +8,17 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
 
   const generateID = () => Math.floor(Math.random() * 10000);
 
+  const getRandomHouseIndex = () => {
+    return Math.floor(Math.random() * 4);
+  };
+
   function inputValueToObj(inputText, seperator) {
     const replaceDigit = inputText.replace(/\d+/g, "");
     const inputArray = replaceDigit.split(seperator);
     const outputArray = inputArray.map((name) => {
+      let houseIndex = getRandomHouseIndex();
       let ID = generateID();
-      let result = { id: ID, name: name.trim() };
+      let result = { id: ID, name: name.trim(), houseIndex: houseIndex };
       return result;
     });
     return outputArray;

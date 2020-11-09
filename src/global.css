@@ -76,6 +76,11 @@ footer {
   -o-user-select: none;
 }
 
+img {
+  width: 100px;
+  height: 100px;
+}
+
 .handleError {
   height: 3rem;
   padding: 0.5rem 0;

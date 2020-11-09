@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import Form from "./components/Form";
 import Header from "./components/Header";
 import Rounds from "./components/Rounds";
-import "./global.css";
+import GlobalStyle from "./GlobalStyle";
 
-import { choosOneRandom, setLocalStorage } from "./utils/helpers";
+import { choosOneRandom, setLocalStorage, chooseGroups } from "./utils/helpers";
 import Sets from "./components/Sets";
 import Button from "./components/Button";
 import TheLuckyOne from "./components/TheLuckyOne";
 import ValuesToChoose from "./components/ValuesToChoose";
 import AlreadyChoosen from "./components/AlreadyChoosen";
+import Groups from "./components/Groups";
 
 function App() {
   const [values, setValues] = useState(
@@ -27,6 +28,9 @@ function App() {
   const [activeSet, setActiveSet] = useState(
     JSON.parse(localStorage.getItem("activeSet")) || { name: "New Round" }
   );
+  const [groupsChosen, setGroupsChosen] = useState(null);
+
+  const [handleError, setHandleError] = useState(null);
 
   const [round, setRound] = useState(
     JSON.parse(localStorage.getItem("round")) || 1
@@ -56,8 +60,20 @@ function App() {
     setAlreadyChoosen([...alreadyChoosen, value]);
   };
 
+  const buildGroups = () => {
+    setHandleError(null);
+    const groupSet = JSON.parse(localStorage.getItem("activeSet"));
+    if (groupSet.name !== "New Round") {
+      const newGroups = chooseGroups(groupSet);
+      setGroupsChosen(newGroups);
+    } else {
+      setHandleError("Entscheide dich für ein Set");
+    }
+  };
+
   return (
     <div className="container">
+      <GlobalStyle />
       <Header />
       <main className="main">
         <div className="realDecideContainer">
@@ -71,11 +87,20 @@ function App() {
                 while (randomPerson.name === theLuckyHacker) {
                   if (values.length > 0) {
                     randomPerson = choosOneRandom(values);
-                    console.log("he got lucky :)");
+                    console.meme(
+                      "SORRY",
+                      "NOT SORRY",
+                      "Bad Luck Brian",
+                      400,
+                      300
+                    );
                   }
                   break;
                 }
-                setTheLuckyOne(randomPerson.name);
+                setTheLuckyOne({
+                  name: randomPerson.name,
+                  houseIndex: randomPerson.houseIndex,
+                });
                 moveFromValuesToAlreadyChoosen(randomPerson);
               } else {
                 setRound(round + 1);
@@ -96,6 +121,9 @@ function App() {
               </div>
             )
           )}
+          <button onClick={buildGroups}>Nicht schon wieder DU!</button>
+          {handleError && <div className="handleError">{handleError}</div>}
+          {groupsChosen && <Groups groupsChosen={groupsChosen} />}
           <Form
             setValues={setValues}
             setAlreadyChoosen={setAlreadyChoosen}

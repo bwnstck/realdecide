@@ -15,7 +15,7 @@ export default function Value({ value, setValues, values }) {
         }
       }}
     >
-      {RandomPic(value.houseIndex)}
+      <RandomPic index={value.houseIndex} />
       {value.name}
 
       <p className="ids">#{value.id}</p>

@@ -6,6 +6,6 @@ import Ravenclaw from "../img/Ravenclaw.png";
 const randomPics = [Gryffindor, Slytherin, Hufflepuff, Ravenclaw];
 const altHouse = ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"];
 
-export default function RandomPic(index) {
+export default function RandomPic({ index }) {
   return <img src={randomPics[index]} alt={altHouse[index]} />;
 }

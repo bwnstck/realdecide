@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import React from "react";
+import RandomPic from "./RandomPic";
 
 const LuckyOneContainer = styled.div`
   margin: 1rem auto;
@@ -39,9 +40,10 @@ const LuckyOneText = styled.h2`
 export default function TheLuckyOne({ theLuckyOne }) {
   return (
     <LuckyOneContainer>
+      <RandomPic index={theLuckyOne.houseIndex} />
       <h3>🚀 Its you! 👩‍🎤</h3>
       <LuckyOneText className="theLuckyOne__text  glow">
-        ✨ {theLuckyOne} ✨
+        ✨ {theLuckyOne.name} ✨
       </LuckyOneText>
     </LuckyOneContainer>
   );

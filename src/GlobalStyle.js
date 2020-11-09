@@ -54,6 +54,20 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
   }
 
+  img {
+  width: 100px;
+  height: 100px;
+}
+
+.handleError {
+  height: 3rem;
+  padding: 0.5rem 0;
+  margin-top: 1rem;
+  text-align: center;
+  background: red;
+  color: white;
+}
+
   .container {
     height: 100vh;
     display: grid;

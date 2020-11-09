@@ -4,7 +4,7 @@ import useDencrypt from "use-dencrypt-effect";
 
 export default function TheLuckyOne({ theLuckyOne }) {
   const [finished, setFinished] = useState(false);
-  let values = ["Next lucky fish: ", theLuckyOne];
+  let values = ["Next fish: ", theLuckyOne];
   useEffect(() => {
     setFinished(false);
   }, [theLuckyOne]);
@@ -21,14 +21,13 @@ export default function TheLuckyOne({ theLuckyOne }) {
           setFinished(true);
           clearInterval(action);
         }
-      }, 1000);
+      }, 500);
 
       return () => clearInterval(action);
     }
   });
   return (
     <div className="theLuckyOne__container unMarkable">
-      <h3 className="theLuckyOne__itsYou">🚀 Its you! 👩‍🎤</h3>
       <h2 className="theLuckyOne__text  glow">✨{result} ✨</h2>
     </div>
   );

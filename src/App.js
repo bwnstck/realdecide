@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect, useState } from "react";
 import Form from "./components/Form";
 import Header from "./components/Header";
@@ -11,7 +10,6 @@ import Button from "./components/Button";
 import TheLuckyOne from "./components/TheLuckyOne";
 import ValuesToChoose from "./components/ValuesToChoose";
 import AlreadyChoosen from "./components/AlreadyChoosen";
-import Confettis from "./components/Confettis";
 
 function App() {
   const [values, setValues] = useState(
@@ -33,10 +31,8 @@ function App() {
   const [round, setRound] = useState(
     JSON.parse(localStorage.getItem("round")) || 1
   );
-  const [show, setShow] = useState(false);
-  const theLuckyHacker = "Benjamin Weinstock";
 
-  const handleShow = () => {};
+  const theLuckyHacker = "Benjamin Weinstock";
 
   // Set values in localStorage on valuechange
   useEffect(() => {
@@ -64,9 +60,6 @@ function App() {
     <div className="container">
       <Header />
       <main className="main">
-        <div>
-          <Confettis recycle={show} />
-        </div>
         <div className="realDecideContainer">
           <h2 className="setTitle">{activeSet.name}</h2>
           <Button
@@ -89,7 +82,6 @@ function App() {
                 setValues(alreadyChoosen);
                 setTheLuckyOne(null);
                 setAlreadyChoosen([]);
-                handleShow(true);
               }
             }}
           />

@@ -42,7 +42,7 @@ export default function TheLuckyOne({ theLuckyOne }) {
   const [finished, setFinished] = useState(false);
   const { result, dencrypt } = useDencrypt();
 
-  let values = ["Next fish: ", theLuckyOne.name];
+  let values = ["are you ready... ", theLuckyOne.name];
 
   useEffect(() => {
     setFinished(false);
@@ -60,7 +60,7 @@ export default function TheLuckyOne({ theLuckyOne }) {
           setFinished(true);
           clearInterval(action);
         }
-      }, 500);
+      }, 250);
 
       return () => clearInterval(action);
     }

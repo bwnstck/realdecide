@@ -66,7 +66,7 @@ function App() {
             onClick={() => {
               if (values.length > 0) {
                 let randomPerson = choosOneRandom(values);
-                // while (randomPerson.name === theLuckyHacker) {
+                while (randomPerson.name === theLuckyHacker) {
                 if (values.length > 0) {
                   randomPerson = choosOneRandom(values);
                   console.meme(

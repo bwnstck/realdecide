@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Groups({ groupsChosen }) {
-  const renderGroup = groupsChosen.map((group) => group.join(", "));
+export default function Groups({ groupsChosen: groups }) {
+  const renderGroup = groups.map((group) => group.join(", "));
   return (
     <div className="valuesToChoose">
-      <h2>👬👭 {groupsChosen.length} Groups 👬👭</h2>
+      <h2>👬👭 {groups.length} Groups 👬👭</h2>
       <ul className="RealDecide">
         {renderGroup.map((group) => (
           <li className="value group" key={group}>

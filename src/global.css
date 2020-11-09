@@ -75,3 +75,12 @@ footer {
   user-select: none;
   -o-user-select: none;
 }
+
+.handleError {
+  height: 3rem;
+  padding: 0.5rem 0;
+  margin-top: 1rem;
+  text-align: center;
+  background: red;
+  color: white;
+}

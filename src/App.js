@@ -30,6 +30,8 @@ function App() {
   );
   const [groupsChosen, setGroupsChosen] = useState(null);
 
+  const [handleError, setHandleError] = useState(null);
+
   const [round, setRound] = useState(
     JSON.parse(localStorage.getItem("round")) || 1
   );
@@ -57,12 +59,13 @@ function App() {
   };
 
   const buildGroups = () => {
+    setHandleError(null);
     const groupSet = JSON.parse(localStorage.getItem("activeSet"));
     if (groupSet.name !== "New Round") {
       const newGroups = chooseGroups(groupSet);
       setGroupsChosen(newGroups);
     } else {
-      setGroupsChosen(["Entscheide dich für ein Set"]);
+      setHandleError("Entscheide dich für ein Set");
     }
   };
 
@@ -105,10 +108,9 @@ function App() {
               </div>
             )
           )}
-          {/* group-button */}
           <button onClick={buildGroups}>Nicht schon wieder DU!</button>
+          {handleError && <div className="handleError">{handleError}</div>}
           {groupsChosen && <Groups groupsChosen={groupsChosen} />}
-          {/* end group-button */}
           <Form
             setValues={setValues}
             setAlreadyChoosen={setAlreadyChoosen}

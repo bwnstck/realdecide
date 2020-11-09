@@ -13,14 +13,6 @@
   margin: 2rem auto;
   height: 149px;
 }
-.RealDecide {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  color: black;
-  padding: 0;
-  margin: 1rem auto;
-}
 
 .button__reRun {
   font-family: var(--titelFont);
@@ -32,24 +24,7 @@
 }
 
 /* https://webdeasy.de/top-css-buttons/ */
-.glow {
-  background: linear-gradient(
-    45deg,
-    #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
-    #ff0000
-  );
-  background-size: 400%;
-  animation: glowing 20s linear infinite;
-  transition: glowing 0.3s ease-in-out;
-  border-radius: 10px;
-}
+
 .glow-on-hover {
   border: none;
   outline: none;

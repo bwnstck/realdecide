@@ -11,6 +11,7 @@
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.0",
     "styled-components": "^5.2.1",
+    "use-dencrypt-effect": "^1.0.2",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

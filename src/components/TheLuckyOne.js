@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from "react";
+import useDencrypt from "use-dencrypt-effect";
 import styled from "styled-components/macro";
-import React from "react";
 import RandomPic from "./RandomPic";
 
 const LuckyOneContainer = styled.div`
@@ -38,13 +39,36 @@ const LuckyOneText = styled.h2`
 `;
 
 export default function TheLuckyOne({ theLuckyOne }) {
+  const [finished, setFinished] = useState(false);
+  const { result, dencrypt } = useDencrypt();
+
+  let values = ["Next fish: ", theLuckyOne];
+
+  useEffect(() => {
+    setFinished(false);
+  }, [theLuckyOne]);
+
+  useEffect(() => {
+    if (!finished) {
+      let i = 0;
+
+      const action = setInterval(() => {
+        dencrypt(values[i]);
+
+        i = i === 0 ? i + 1 : 0;
+        if (i === 0) {
+          setFinished(true);
+          clearInterval(action);
+        }
+      }, 500);
+
+      return () => clearInterval(action);
+    }
+  });
   return (
     <LuckyOneContainer>
       <RandomPic index={theLuckyOne.houseIndex} />
-      <h3>🚀 Its you! 👩‍🎤</h3>
-      <LuckyOneText className="theLuckyOne__text  glow">
-        ✨ {theLuckyOne.name} ✨
-      </LuckyOneText>
+      <LuckyOneText>✨ {result} ✨</LuckyOneText>
     </LuckyOneContainer>
   );
 }

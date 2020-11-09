@@ -29,3 +29,7 @@ img {
 
   margin: 1rem auto;
 }
+
+.group {
+  max-width: 30ch;
+}

@@ -33,7 +33,7 @@ summary::-webkit-details-marker {
 }
 .persons__input {
   min-height: 100px;
-  text-align: center;
+  padding: 10px;
   border-radius: 5px;
 }
 

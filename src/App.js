@@ -84,7 +84,13 @@ function App() {
                 while (randomPerson.name === theLuckyHacker) {
                   if (values.length > 0) {
                     randomPerson = choosOneRandom(values);
-                    console.log("he got lucky :)");
+                    console.meme(
+                      "SORRY",
+                      "NOT SORRY",
+                      "Bad Luck Brian",
+                      400,
+                      300
+                    );
                   }
                   break;
                 }

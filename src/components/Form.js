@@ -4,12 +4,13 @@ import Button from "./Button";
 
 export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
   const [inputValue, setInputValue] = useState("");
-  const [separator, setSeparator] = useState(/\d+\s+/g);
+  const [separator, setSeparator] = useState(/\n/g);
 
   const generateID = () => Math.floor(Math.random() * 10000);
 
   function inputValueToObj(inputText, seperator) {
-    const inputArray = inputText.split(seperator);
+    const replaceDigit = inputText.replace(/\d+/g, "");
+    const inputArray = replaceDigit.split(seperator);
     const outputArray = inputArray.map((name) => {
       let ID = generateID();
       let result = { id: ID, name: name.trim() };
@@ -30,7 +31,7 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
           setValues(inputValueToObj(inputValue, separator));
         }}
       >
-        <input
+        <textarea
           value={inputValue}
           onChange={(event) => setInputValue(event.target.value)}
           type="text"

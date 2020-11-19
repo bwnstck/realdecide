@@ -5,10 +5,11 @@ import styled from "styled-components/macro";
 const Details = styled.details`
   width: 70%;
   min-width: 300px;
-  margin: 2rem auto;
-  padding: 1rem;
+  margin: 1rem auto;
+  padding: 0.5rem;
   background: rgb(151, 140, 210);
   border-radius: 5px;
+
   summary {
     margin: auto;
     color: var(--text-color);
@@ -66,14 +67,21 @@ export default function Form({ setValues, setAlreadyChoosen, setTheLuckyOne }) {
   }
 
   return (
-    <Details open={openDetails} onClick={() => setOpenDetails(!openDetails)}>
+    <Details
+      open={openDetails}
+      onClick={() => {
+        setOpenDetails(true);
+      }}
+    >
       <summary>🖋 Input ✏️</summary>
       <FormElement
         onSubmit={(event) => {
+          event.stopPropagation();
           event.preventDefault();
           setAlreadyChoosen([]);
           setTheLuckyOne("");
           setValues(inputValueToObj(inputValue, separator));
+          console.log("Submitted");
           setOpenDetails(false);
         }}
       >

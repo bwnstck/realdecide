@@ -77,6 +77,11 @@ function App() {
       <Header />
       <main className="main">
         <div className="realDecideContainer">
+          <Form
+            setValues={setValues}
+            setAlreadyChoosen={setAlreadyChoosen}
+            setTheLuckyOne={setTheLuckyOne}
+          />
           <h2 className="setTitle">{activeSet.name}</h2>
           <Button
             rerun={"rerun"}
@@ -125,11 +130,6 @@ function App() {
           <Button onClick={buildGroups} innerText={"Group 3m/p"}></Button>
           {handleError && <div className="handleError">{handleError}</div>}
           {groupsChosen && <Groups groupsChosen={groupsChosen} />}
-          <Form
-            setValues={setValues}
-            setAlreadyChoosen={setAlreadyChoosen}
-            setTheLuckyOne={setTheLuckyOne}
-          />
           {values.length > 0 && (
             <div className="outputContainer">
               {values.length > 0 && (

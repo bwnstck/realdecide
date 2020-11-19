@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   }
 
   h5 {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
 `;
 
